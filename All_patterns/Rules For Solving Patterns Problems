@@ -1,0 +1,18 @@
+1 . Observe the Outer area
+----> How Many Lines / Rows are present
+
+2 . check the Inside Elements Of Each Line
+----> Below There are 5 Rows Or Lines
+
+3 . Find the Relation
+----> In this each Line One Element is Increased By their Line
+
+NOTE :
+ //Outer Loop --> No. Of Lines = No. OF Rows
+// Inner Loop --> No. Of stars In Each Line   = No. Of Columns
+
+    *
+    * *
+    * * *
+    * * * *
+    * * * * *
