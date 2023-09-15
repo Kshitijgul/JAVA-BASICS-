@@ -13,7 +13,5 @@ public class reverse_of_number {
             System.out.print(last_num +" ");
         }
         System.out.println();
-
     }
-
 }
