@@ -14,7 +14,6 @@ public class second_largest {
     }
     public static int second_largest(int arr[]){
         int max=maximum(arr);
-
         for (int i=0;i< arr.length;i++){
             if (arr[i]==max){
                 arr[i]=Integer.MIN_VALUE;
