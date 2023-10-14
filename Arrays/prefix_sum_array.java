@@ -12,6 +12,13 @@ public class prefix_sum_array {
         }
         return prefix;
     }
+    public static int[] without_new_array(int[] arr){
+        int n = arr.length;
+        for (int i=1;i<n;i++){
+            arr[i]=arr[i-1]+arr[i];
+        }
+        return arr;
+    }
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the Size of an array : ");
@@ -29,7 +36,11 @@ public class prefix_sum_array {
         for (int i=0;i<n;i++){
             System.out.print(" "+ans[i]);
         }
-
+        System.out.println();
+        int[] ans2 = without_new_array(arr);
+        for (int i=0;i<n;i++){
+            System.out.print(" "+ans2[i]);
+        }
 
     }
 }
