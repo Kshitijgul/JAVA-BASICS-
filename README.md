@@ -327,3 +327,148 @@ Euclidean Approach
 This program provides three methods to find the GCD of two numbers, highlighting both brute-force and optimized approaches. The **Euclidean Algorithm** is the most efficient, especially for larger numbers, and is widely used in various applications.
 
 ---
+
+---
+
+# Recursion Tasks Program
+
+This Java program demonstrates three tasks using recursion:
+
+1. **Write a name `n` times**.
+2. **Print numbers from 1 to `n`**.
+3. **Print numbers from `n` to 1**.
+
+## Table of Contents
+- [Description](#description)
+- [Program Structure](#program-structure)
+- [Usage](#usage)
+- [Code](#code)
+- [How to Run](#how-to-run)
+- [Output Example](#output-example)
+
+## Description
+
+This program uses recursion to complete three different tasks:
+1. **Write a given name multiple times** – A function that prints the provided name `n` times using recursion.
+2. **Print numbers from 1 to `n`** – A function that prints numbers in ascending order from 1 to `n`.
+3. **Print numbers from `n` to 1** – A function that prints numbers in descending order from `n` to 1.
+
+## Program Structure
+
+### Functions:
+
+1. **writeName(int n, String name):**
+   - Recursively prints the `name` `n` times.
+
+2. **printOneToN(int n):**
+   - Recursively prints numbers from 1 to `n` in ascending order.
+
+3. **printNToOne(int n):**
+   - Recursively prints numbers from `n` to 1 in descending order.
+
+## Usage
+
+You can modify the integer `n` and the name string in the `main` method to customize the output.
+
+- **writeName**: Call this function to print the name a certain number of times.
+- **printOneToN**: Call this function to print numbers from 1 to `n`.
+- **printNToOne**: Call this function to print numbers from `n` to 1.
+
+## Code
+
+```java
+public class RecursionTasks {
+
+    // Function 1: Write name n times
+    static void writeName(int n, String name) {
+        // Base case
+        if (n == 0) {
+            return;
+        }
+        // Print name
+        System.out.println(name);
+        // Recursive call
+        writeName(n - 1, name);
+    }
+
+    // Function 2: Print numbers from 1 to n
+    static void printOneToN(int n) {
+        // Base case
+        if (n == 0) {
+            return;
+        }
+        // Recursive call for smaller problem
+        printOneToN(n - 1);
+        // Print number after recursive call (ensures ascending order)
+        System.out.print(n + " ");
+    }
+
+    // Function 3: Print numbers from n to 1
+    static void printNToOne(int n) {
+        // Base case
+        if (n == 0) {
+            return;
+        }
+        // Print number before recursive call (ensures descending order)
+        System.out.print(n + " ");
+        // Recursive call for smaller problem
+        printNToOne(n - 1);
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        String name = "John";
+
+        System.out.println("Writing name " + n + " times:");
+        writeName(n, name);
+
+        System.out.println("\nNumbers from 1 to " + n + ":");
+        printOneToN(n);
+
+        System.out.println("\n\nNumbers from " + n + " to 1:");
+        printNToOne(n);
+    }
+}
+```
+
+## How to Run
+
+1. **Compile the program**:  
+   Open your terminal/command prompt and navigate to the directory containing the Java file. Compile the program using:
+   ```bash
+   javac RecursionTasks.java
+   ```
+
+2. **Run the program**:  
+   After successful compilation, run the program:
+   ```bash
+   java RecursionTasks
+   ```
+
+3. The output will display the name printed `n` times, numbers from 1 to `n`, and numbers from `n` to 1.
+
+## Output Example
+
+For `n = 5` and name = "John", the program will output:
+
+```
+Writing name 5 times:
+John
+John
+John
+John
+John
+
+Numbers from 1 to 5:
+1 2 3 4 5 
+
+Numbers from 5 to 1:
+5 4 3 2 1
+```
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
