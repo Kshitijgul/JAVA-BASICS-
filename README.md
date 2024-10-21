@@ -472,3 +472,60 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
+
+
+# SUM of n Numbers Recursion in Java
+
+This Java program demonstrates two approaches to solving a problem using recursion: functional recursion and parameterized recursion. The goal of the program is to calculate the sum of the first `n` natural numbers using both techniques.
+
+## Functional Recursion
+
+In the **functional** recursion approach, we define a recursive function `functional` that directly returns the result of adding `n` to the sum of the first `n-1` numbers. The recursion terminates when `n` reaches 0.
+
+### Code Example:
+
+```java
+public static int functional(int n) {
+    if (n == 0) {
+        return 0;
+    }
+    return n + functional(n - 1);
+}
+```
+
+## Parameterized Recursion
+
+In the **parameterized** recursion approach, we pass an additional argument (`sum`) to the recursive function. This argument keeps track of the accumulated sum. The recursion terminates when `n` reaches 0, and the final value of `sum` is returned.
+
+### Code Example:
+
+```java
+public static int parameterized(int n, int sum) {
+    if (n == 0) {
+        return sum;
+    }
+    return parameterized(n - 1, sum + n);
+}
+```
+
+## How to Run
+
+1. **Input**: The program accepts an integer `n` from the user, representing the number up to which the sum of natural numbers will be calculated.
+2. **Output**: The program prints the sum using both the functional and parameterized recursion methods.
+
+### Sample Input:
+```
+5
+```
+
+### Sample Output:
+```
+15
+15
+```
+
+## Explanation
+
+For the input `n = 5`, both approaches will calculate the sum of numbers `1 + 2 + 3 + 4 + 5`, which equals `15`. The program prints the result twice: once using the functional approach and once using the parameterized approach.
+
+---
