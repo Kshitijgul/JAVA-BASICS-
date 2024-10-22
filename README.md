@@ -529,3 +529,230 @@ public static int parameterized(int n, int sum) {
 For the input `n = 5`, both approaches will calculate the sum of numbers `1 + 2 + 3 + 4 + 5`, which equals `15`. The program prints the result twice: once using the functional approach and once using the parameterized approach.
 
 ---
+
+# Array Reversal Using Recursion
+
+This project demonstrates two approaches for reversing an array using recursion in Java. It contains two methods: 
+- `reverse()`: Reverses the array by passing both the start and end indices.
+- `reverse2()`: Reverses the array by passing only one value (the current index).
+
+## Overview
+
+This Java program provides two methods to reverse an array recursively. The program accepts a sample array, calls the `reverse2()` method to reverse the array, and prints the reversed array.
+
+## Usage
+
+You can choose between two approaches:
+
+- **Method 1**: Uses two indices (start and end) to reverse the array.
+- **Method 2**: Uses one index (current index) to reverse the array.
+
+The code currently uses `reverse2()` for array reversal. To use `reverse()`, uncomment the relevant line in the `main()` method.
+
+## How it Works
+
+### Method 1: `reverse()`
+
+- **Parameters**: Takes the array, a starting index (`l`), and an ending index (`r`).
+- **Operation**: Swaps the elements at indices `l` and `r` and recursively calls itself by incrementing `l` and decrementing `r`. Stops recursion when `l >= r`.
+
+### Method 2: `reverse2()`
+
+- **Parameters**: Takes the array and the starting index (`l`).
+- **Operation**: Swaps the element at index `l` with the corresponding element from the other end of the array (`n - l - 1`), where `n` is the length of the array. Recursively calls itself by incrementing `l` until `l` reaches the middle of the array (`n / 2`).
+
+## Example Output
+
+```
+5
+4
+3
+2
+1
+```
+
+
+
+By default, `reverse2()` is used. If you want to test `reverse()`, simply comment out `reverse2()` and uncomment the `reverse()` line in the `main()` method.
+
+## Code
+
+```java
+public class Main {
+    // Method 1: Reverse array by passing two indices (l and r)
+    public static void reverse(int arr[], int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int temp = arr[l];
+        arr[l] = arr[r];
+        arr[r] = temp;
+        reverse(arr, l + 1, r - 1);
+    }
+
+    // Method 2: Reverse array by passing only one index (l)
+    public static void reverse2(int[] arr, int l) {
+        int n = arr.length;
+        
+        // Base case: if the current index reaches the middle, stop recursion
+        if (l >= n / 2) {
+            return;
+        }
+        
+        // Swap element at index l with element at index (n - l - 1)
+        int temp = arr[l];
+        arr[l] = arr[n - l - 1];
+        arr[n - l - 1] = temp;
+        
+        // Recursive call with the next index
+        reverse2(arr, l + 1);
+    }
+
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 3, 4, 5};
+        int n = arr.length;
+        
+        // Uncomment to use Method 1: reverse with two indices
+        // reverse(arr, 0, n - 1);
+        
+        // Using Method 2: reverse by passing only one index
+        reverse2(arr, 0);
+        
+        // Print the reversed array
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}
+```
+
+---
+
+
+By default, `reverse2()` is used. If you want to test `reverse()`, simply comment out `reverse2()` and uncomment the `reverse()` line in the `main()` method.
+
+---
+---
+
+# Recursive Java Program for Fibonacci Sequence and Factorial Calculation
+
+## Description
+This Java program demonstrates the use of recursion to solve two classic mathematical problems:
+1. **Fibonacci Sequence**: It generates the Fibonacci numbers up to a given number `n`.
+2. **Factorial Calculation**: It calculates the factorial of a given number.
+
+Recursion is a technique where a function calls itself in order to break down a problem into smaller instances of the same problem. Both the Fibonacci and factorial problems are well-suited to recursive solutions.
+
+---
+
+---
+
+## Fibonacci Sequence
+
+The Fibonacci sequence is a series of numbers where:
+- The first two numbers are `1` and `1`.
+- Each subsequent number is the sum of the previous two numbers.
+
+### Formula:
+```
+F(n) = F(n-1) + F(n-2)
+```
+where `F(0) = 1` and `F(1) = 1`.
+
+## Factorial Calculation
+
+The factorial of a number `n` is the product of all positive integers less than or equal to `n`.
+
+### Formula:
+```
+n! = n * (n-1)!
+```
+where `1! = 1` and `0! = 1`.
+
+---
+
+## Program Code
+
+```java
+public class Main{
+    
+    // Recursive method to calculate Fibonacci number at position 'n'
+    public static int Fibbonacci(int n){
+        if(n <= 1){
+            return 1;
+        }
+        return Fibbonacci(n - 1) + Fibbonacci(n - 2);
+    }
+    
+    // Recursive method to calculate the factorial of 'n'
+    public static int factorial(int n){
+        if(n <= 1){
+            return 1;
+        }
+        return factorial(n - 1) * n;
+    }
+    
+    public static void main(String args[]){
+        int n = 10; // The number of Fibonacci terms to print
+        
+        // Calculate the factorial of 4
+        System.out.println("Factorial of 4: " + factorial(4));
+        
+        // Print Fibonacci sequence from 0 to n
+        System.out.println("Fibonacci sequence up to " + n + ":");
+        for (int i = 0; i <= n; i++) {
+            System.out.println(Fibbonacci(i));
+        }
+    }
+}
+```
+
+---
+
+
+
+## Sample Output
+
+```
+Factorial of 4: 24
+Fibonacci sequence up to 10:
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+```
+
+---
+
+## Explanation
+
+### Fibonacci Sequence:
+- The `Fibbonacci()` method uses recursion to calculate the Fibonacci number for a given index `n`.
+- It starts from `n = 0` and continues to `n = 10`, printing each Fibonacci number.
+
+### Factorial Calculation:
+- The `factorial()` method is also recursive and calculates the factorial of `4`.
+- The program prints the result: `24`, because `4! = 4 * 3 * 2 * 1 = 24`.
+
+---
+
+## Key Concepts:
+- **Recursion**: A technique where a function calls itself to break down a problem.
+- **Base Case**: A condition to stop the recursion. In the Fibonacci and factorial methods, it is when `n` is less than or equal to 1.
+- **Efficiency Considerations**: The recursive Fibonacci function in its current form has a high time complexity due to repeated calculations. Optimizations like memoization can be applied for larger `n`.
+
+---
+
+## License
+This project is free to use for learning and educational purposes.
+
+---
+
+
